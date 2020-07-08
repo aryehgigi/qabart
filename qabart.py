@@ -47,7 +47,7 @@ def main():
         
         if len(d_subj) != 0 or len(d_obj) != 0:
             for pred_triplet, pred_vals in d_subj.items():
-                st.write('Q: who', 'is' if not pred_triplet[2] else "", conjugate(pred_triplet[1], tense=PAST), '? A: ', ", ".join(pred_vals))
+                st.write('Q: who', 'is' if not pred_triplet[2] else "", conjugate(pred_triplet[1], tense=PAST) if pred_triplet[2] else pred_triplet[1], '? A: ', ", ".join(pred_vals))
             for pred_triplet, pred_vals in d_obj.items():
                 st.write('Q: who/what', 'was' if pred_triplet[2] else "", conjugate(pred_triplet[1], tense='ppart'), '? A: ', ", ".join(pred_vals))
         else:
